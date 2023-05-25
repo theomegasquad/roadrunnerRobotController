@@ -21,11 +21,11 @@ public class MotionTest1 extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        Pose2d startPose = new Pose2d(-36, 68, Math.toRadians(270));
+        Pose2d startPose = new Pose2d(-36, 60, Math.toRadians(270));
         drive.setPoseEstimate(startPose);
 
         Trajectory traj1 = drive.trajectoryBuilder(startPose)
-                .splineTo(new Vector2d(-12, 44), Math.toRadians(315), SampleMecanumDrive.getVelocityConstraint(0.2, DriveConstants.MAX_ANG_VEL, DriveConstants.TRACK_WIDTH), SampleMecanumDrive.getAccelerationConstraint(DriveConstants.MAX_ACCEL))
+                .strafeRight(40)
                 .build();
 
         waitForStart();
